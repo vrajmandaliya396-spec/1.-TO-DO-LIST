@@ -5,12 +5,9 @@ var h2 = document.querySelector("h2");
 var btn_all = document.querySelector(".btn-all");
 var btn_pending = document.querySelector(".btn-pending");
 var btn_completed = document.querySelector(".btn-completed");
+var list_cintainer = document.querySelector(".list-container");
 
 
-
-btn_all.addEventListener("click", function() {
-  
-});
 
 
 
@@ -36,7 +33,40 @@ button.addEventListener('click', function() {
   }
   taskInput.value = "";
   saveData();
+});
 
+btn_all.addEventListener("click", function() {
+  var tasks = tasklist.querySelectorAll("li");
+
+  tasks.forEach(function(task) {
+    task.style.display = "flex";
+  });
+});
+
+btn_pending.addEventListener("click", function() {
+
+    var tasks = tasklist.querySelectorAll("li");
+
+    tasks.forEach(function(i){
+      if(i.classList.contains("completed")){
+        i.style.display = "none"
+      }else{
+        i.style.display = "flex";
+      }
+    });
+
+});
+
+btn_completed.addEventListener("click", function() {
+  var tasks = tasklist.querySelectorAll("li");
+
+  tasks.forEach(function(task) {
+    if (task.classList.contains("completed")) {
+      task.style.display = "flex";
+    } else {
+      task.style.display = "none";
+    }
+  });
 });
 
 tasklist.addEventListener('click', function(e) {
