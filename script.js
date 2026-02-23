@@ -2,6 +2,17 @@ var tasklist = document.getElementById("taskList");
 var taskInput = document.getElementById("taskInput");
 var button = document.getElementById("btn-add");
 var h2 = document.querySelector("h2");
+var btn_all = document.querySelector(".btn-all");
+var btn_pending = document.querySelector(".btn-pending");
+var btn_completed = document.querySelector(".btn-completed");
+
+
+
+btn_all.addEventListener("click", function() {
+  
+});
+
+
 
 button.addEventListener('click', function() {
   if (taskInput.value === "") {
@@ -54,5 +65,7 @@ function saveData(){
 function displayData(){
   tasklist.innerHTML = localStorage.getItem("data");
 }
+
+
 
 displayData();
